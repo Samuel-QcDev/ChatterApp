@@ -25,12 +25,12 @@
         <div id="channel-list-area">
             <h2>Favorites</h2>
             <ul class="channel-list">
-                <li class="selected">
+                <li class="selected" id="channel1" onclick="switchChannel(channel1)">
                     <i class="material-icons">group</i>
                     <span class="channel-name">MeetUp</span>
                     <span class="timestamp">11:51</span>
                 </li>
-                <li>
+                <li id="channel2" onclick="switchChannel(channel2)">
                     <i class="material-icons">group</i>
                     <span class="channel-name">Oktoberfest</span>
                     <span class="timestamp">10:51</span>
@@ -39,12 +39,12 @@
 
             <h2>Regular</h2>
             <ul class="channel-list">
-                <li>
+                <li id="channel3" onclick="switchChannel(channel3)">
                     <i class="material-icons">group</i>
                     <span class="channel-name">WeatherChannel</span>
                     <span class="timestamp">Yesterday</span>
                 </li>
-                <li>
+                <li id="channel4" onclick="switchChannel(channel4)">
                     <i class="material-icons">group</i>
                     <span class="channel-name">SevenContinents</span>
                     <span class="timestamp">23 May 2018</span>
@@ -55,7 +55,7 @@
 
     <section id="message-area">
         <div class="headbar">
-            <h1>MeetUp</h1>
+            <h1 id="channelName">MeetUp</h1>
             <a id="favorite-button" class="material-icons">favorite</a>
         </div>
         <div id="chat-area">
@@ -140,8 +140,10 @@
         <div id="input-area">
             <i class="material-icons" id="emoticon-button">insert_emoticon</i>
             <input type="text" id="message-input" name="message-input" minlength="1" maxlength="500" placeholder="... write your message">
-            <a class="material-icons button" id="send-button">send</a>
+            <a class="material-icons button" id="send-button" onclick="sendMessage()">send</a>
         </div>        
     </section>
+    <script src="../chatterap/js/main.js"></script>
+    <script src="../chatterap/js/channels.js"></script>
 </body>
 </html>

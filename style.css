@@ -172,8 +172,8 @@ h2 {
 }
 
 .outgoing-message {
-   align-self: flex-end;
-   text-align: right;
+    align-self: flex-end;
+    text-align: right;
 }
 
 .message-wrapper {
@@ -207,7 +207,6 @@ h2 {
 .message-content p {
     font-size: 14px;
 }
-
 
 #input-area {
     box-sizing: border-box;
