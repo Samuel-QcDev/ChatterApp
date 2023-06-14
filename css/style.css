@@ -62,7 +62,7 @@ h1 {
     color: #00838f;
 }
 
-.fab {
+#fab {
     width: 44px;
     height: 44px;
     background-color:#00838f;
@@ -108,7 +108,7 @@ h2 {
 .channel-list li.selected {
     background-color: #eeeeee;
     border-right: 3px solid #00838f;
-} 
+}
 
 .channel-list li:hover {
     background-color: #f5f5f5;

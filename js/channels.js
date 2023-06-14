@@ -1,20 +1,29 @@
-const channel1 = {
-    id: "channel1",
+const mockChannels = [{
+    id: "0nlbop5f1e",
     name: "MeetUp",
-    favorite: true
-}
-const channel2 = {
-    id: "channel2",
+    favorite: true,
+    messages: [],
+    latestMessage: "17:24"
+},
+{
+    id: "6xwd0whqpv",
     name: "Oktoberfest",
-    favorite: true
-}
-const channel3 = {
-    id: "channel3",
+    favorite: true,
+    messages: [],
+    latestMessage: "17:24"
+},
+{
+    id: "pc2z0hhkyf",
     name: "Weather",
-    favorite: false
-}
-const channel4 = {
-    id: "channel4",
+    favorite: false,
+    messages: [],
+    latestMessage: "17:24"
+},
+{
+    id: "achndt7tst",
     name: "SevenContinents",
-    favorite: false
+    favorite: false,
+    messages: [],
+    latestMessage: "17:24"
 }
+];
