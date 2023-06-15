@@ -79,6 +79,7 @@ function createChannel() {
     let channelName = prompt("Enter channel name", "... channel name");
     const newChannel = new Channel (channelName)
     console.log("New channel name: ", channelName);
+    getChannels();
     mockChannels.push(newChannel)
     displayChannels();
     showMessages();
