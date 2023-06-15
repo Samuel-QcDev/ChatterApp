@@ -39,19 +39,19 @@ function loadMessagesIntoChannel() {
     })
 }
 
-function displayChannels () {
+
+// display channels in channel area 
+function displayChannels() {
     const favoriteList = document.getElementById('favorite-channels');
     const regularList = document.getElementById('regular-channels');
-    favoriteList.innerHTML = "" ;
-    regularList.innerHTML = "";
-    channels.forEach((channel) => {
-        const currentChannelHtmlString =
-        `  <li id="` +
-            channel.id +
-            `"onclick="switchChannel(this.id)"> <i class="material-icons">group</i> 
-                <span class="channel-name">` + channel.name + `</span>
-                <span class="timestamp">` + channel.latestMessage + `</span>
-        </li>`;
+    favoriteList.innerHTML = ""
+    regularList.innerHTML = ""
+    channels.forEach(channel => {
+        const currentChannelHtmlString = `  <li id="` + channel.id + `" onclick="switchChannel(this.id)">
+                                                <i class="material-icons">group</i>
+                                                <span class="channel-name">` + channel.name + `</span>
+                                                <span class="timestamp">`+ channel.latestMessage() + `</span>
+                                            </li>`
         if (channel.favorite) {
             favoriteList.innerHTML += currentChannelHtmlString;
         } else {
@@ -73,6 +73,19 @@ function Channel(name) {
     this.favorite = false;
     this.messages = [];
 }
+
+// Create new channel
+function createChannel() {
+    let channelName = prompt("Enter channel name", "... channel name");
+    const newChannel = new Channel (channelName)
+    console.log("New channel name: ", channelName);
+    mockChannels.push(newChannel)
+    displayChannels();
+    showMessages();
+}
+// Event listener for Create new channel
+document.getElementById('fab').addEventListener('click', createChannel);
+
 // Object method that returns the date of the latest message (to display it in channel section)
 Channel.prototype.latestMessage = function() {
     //if messages exist, display timestamp
@@ -109,6 +122,18 @@ function switchChannel(selectedChannelID) {
     showHeader();
     showMessages();
 }
+
+function toggleFavorite(){
+    if (selectedChannel.favorite == false) {
+        selectedChannel.favorite = true;
+    } else if (selectedChannel.favorite == true) {
+        selectedChannel.favorite = false;
+    }
+    showHeader();
+    displayChannels();
+}
+// Event listener for Favorite button
+document.getElementById('favorite-button').addEventListener('click', toggleFavorite);
 
 function showHeader(){
     document.getElementById("message-area-header").getElementsByTagName('h1')[0].innerHTML = selectedChannel.name;
@@ -149,12 +174,19 @@ document.getElementById('message-input').onkeyup = function(e){
     }
 };
 
+// simple sort function: insert current channel at [0] in channels array and call it if new message is sent
+function sortChannels() {
+    //remove first
+    channels = channels.filter(channel => channel.id !== selectedChannel.id);
+    //insert
+    channels.unshift(selectedChannel);
+}
 
  // Check if input is provided, send message, and clear input. Return if not.
 function sendMessage() {
     const text = document.getElementById('message-input').value;
     if (!!text) {
-        const myUserName = "Basti";
+        const myUserName = "Samuel";
         const own = true;
         const channelID = selectedChannel.id;
         const message = new Message (myUserName, own, text, channelID)
@@ -229,6 +261,7 @@ function receiveEchoMessage() {
 // --------------------- Emojis ----------------------------
 
 // load emojis into div
+/*
 function loadEmojis() {
     for (let i = 0; i < emojis.length; i++) {
         document.getElementById("emoji-list").innerHTML += `<span class="button">` + emojis[i] + `</span>`
@@ -250,5 +283,5 @@ function toggleEmojiArea(){
     const chatArea = document.getElementById('chat-area');
     emojiArea.classList.toggle('toggle-area');
     chatArea.style.height = (emojiArea.classList.contains('toggle-area')) ? "calc(100vh - 132px - 250px)" : "calc(100vh - 132px)";
-    chatArea.scrollTop = chatArea.scrollHeight;
-}
+    chatArea.scrollTop = chatArea.scrollHeight;   
+}   */
