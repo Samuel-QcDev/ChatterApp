@@ -77,12 +77,14 @@ function Channel(name) {
 // Create new channel
 function createChannel() {
     let channelName = prompt("Enter channel name", "... channel name");
-    const newChannel = new Channel (channelName)
-    console.log("New channel name: ", channelName);
-    getChannels();
-    mockChannels.push(newChannel)
-    displayChannels();
-    showMessages();
+    if (!! channelName == "") {
+        const newChannel = new Channel (channelName)
+        console.log("New channel name: ", channelName);
+        getChannels();
+        mockChannels.push(newChannel)
+        displayChannels();
+        showMessages();
+    }
 }
 // Event listener for Create new channel
 document.getElementById('fab').addEventListener('click', createChannel);
