@@ -83,7 +83,9 @@ function createChannel() {
         getChannels();
         mockChannels.push(newChannel)
         displayChannels();
-        showMessages();
+        //showMessages();
+        console.log(newChannel.id);
+        switchChannel(newChannel.id);
     }
 }
 // Event listener for Create new channel
