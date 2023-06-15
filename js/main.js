@@ -77,7 +77,7 @@ function Channel(name) {
 // Create new channel
 function createChannel() {
     let channelName = prompt("Enter channel name", "... channel name");
-    if (!! channelName == "") {
+    if (channelName && channelName != "... channel name") {
         const newChannel = new Channel (channelName)
         console.log("New channel name: ", channelName);
         getChannels();
